@@ -1,0 +1,8 @@
+: readhumidity 56 ;
+: pumpon 1 pigpiodigitalout 1000000 sleep pumpoff ;
+: pumpoff 0 pigpiodigitalout ;
+
+: connect "192.168.0.4" "8000" "/" wsconnect . cr ;
+: sendhumidity readhumidity wssend . cr ;
+
+: run connect begin readhumidity 30 < if pumpon then sendhumidity 1000000 sleep again ;
