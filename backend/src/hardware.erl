@@ -10,11 +10,22 @@ start() ->
     {ok, Pid}.
 
 init() ->
+    {ok, Pid1} = pigpio:start_link("192.168.0.20", 8888, 1),
+    register(bucket, Pid1),
+    {ok, Pid2} = pigpio:start_link("192.168.0.20", 8888, 2),
+    register(pot, Pid2),
+    {ok, Pid3} = pigpio:start_link("192.168.0.20", 8888, 3),
+    register(pump, Pid3),
+    % Msg = pigpio:read(whereis(pump))
+    % Msg = pigpio:write(Gpio, Msg)
     timer:send_interval(1000, check_water_level),
     loop(true, on, 0, 0).
 
 loop(Bucket_empty, Pump_status, Pump_running,
      Pump_start) ->
+    io:format("~p~n",
+	      [[Bucket_empty, Pump_status, Pump_running,
+		Pump_start]]),
     receive
       % Get current status
       {Pid, status} ->
@@ -25,11 +36,11 @@ loop(Bucket_empty, Pump_status, Pump_running,
 	       Pump_start);
       % Turn on the pump
       {pump_status, on} ->
-	  pump_simulator(on),
+	  pigpio:write(whereis(pump), on),
 	  loop(Bucket_empty, on, 0, os:system_time(seconds));
       % Turn off the pump
       {pump_status, off} ->
-	  pump_simulator(off),
+	  pigpio:write(whereis(pump), off),
 	  case Pump_start of
 	    false -> loop(Bucket_empty, off, 0, false);
 	    _ ->
@@ -38,8 +49,9 @@ loop(Bucket_empty, Pump_status, Pump_running,
 	  end;
       % Check the water levels and act accordingly
       check_water_level ->
-	  check_water_level(Bucket_empty, bucket_simulator(),
-			    pot_simulator()),
+	  check_water_level(Bucket_empty,
+			    pigpio:read(whereis(bucket)),
+			    pigpio:read(whereis(pot))),
 	  loop(Bucket_empty, Pump_status, Pump_running,
 	       Pump_start);
       % Act on empty bucket
@@ -76,10 +88,3 @@ check_water_level(_, false, _) -> self() ! bucket_empty;
 % Pot is empty. Ensure the pump is on.
 check_water_level(_, _, false) ->
     self() ! {pump_status, on}.
-
-% Simulators until sensors are in use
-pump_simulator(New_status) -> {ok, New_status}.
-
-bucket_simulator() -> round(rand:uniform()) == 1.
-
-pot_simulator() -> round(rand:uniform()) == 1.

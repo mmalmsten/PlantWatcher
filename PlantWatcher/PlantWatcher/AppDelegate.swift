@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             } else if let pump_status = json["pump_status"] as? String, pump_status == "on" {
                                 self.icon = "💧"
                                 if let pump_running_time = json["pump_running_time"] as? Int {
-                                    self.icon = "💧 \(pump_running_time)min"
+                                    self.icon = "💧 \(pump_running_time) min"
                                 }
                             } else {
                                 self.icon = "🌸"
