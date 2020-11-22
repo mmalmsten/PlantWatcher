@@ -2,20 +2,11 @@
 
 -export([init/2]).
 
-init(Req0, State) ->
-    hardware ! {self(), status},
-    Body = status(),
+init(Req0, Pid) ->
+    Map = gen_server:call(Pid, read),
     Req = cowboy_req:reply(200,
-			   #{<<"content-type">> => <<"application/json">>},
-			   Body, Req0),
-    {ok, Req, State}.
-
-status() ->
-    receive
-      {Time, Should_refill, Pump_status, Pump_running_time} ->
-	  jiffy:encode(#{<<"time">> => Time,
-			 <<"should_refill">> => Should_refill,
-			 <<"pump_status">> => Pump_status,
-			 <<"pump_running_time">> => Pump_running_time});
-      _ -> status()
-    end.
+      #{<<"content-type">> => <<"application/json">>},
+      jiffy:encode(maps:put(time, os:system_time(second), Map)), 
+      Req0
+    ),
+    {ok, Req, Pid}.
