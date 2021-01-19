@@ -4,7 +4,7 @@ When I got my first apartment with a balcony, I realized that there are challeng
 
 🛰 The PlantWatcher is intended to run on a RaspberryPi Zero.
 
-⚠️ The code is written for my own personal use and I take no responibility for any incident of killed plants.
+⚠️ The code is written for my own personal use and I take no responibility for any incident of killed plants or flooded apartments.
 
 🙏 Many thanks to [skvamme](https://github.com/skvamme) for letting me fork her implementation on accessing GPIO on a raspberry pi with http://abyz.me.uk/rpi/pigpio/ and Erlang.
 
@@ -32,15 +32,25 @@ The pigpio C library (http://abyz.me.uk/rpi/pigpio/)
 **Install Erlang**
 
 ```
-sudo apt-get update
 sudo apt-get install erlang
 ```
 
 **Install the pigpio library**
 
 ```
-sudo apt-get update
 sudo apt-get install pigpio
+```
+
+**Install pigpio**
+
+```
+sudo apt-get install pigpio python-pigpio python3-pigpio
+```
+
+**Start the pigpio daemon**
+
+```
+sudo pigpiod
 ```
 
 **Edit config file**

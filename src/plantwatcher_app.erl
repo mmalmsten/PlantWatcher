@@ -7,7 +7,7 @@
 -export([stop/1]).
 
 start(_Type, _Args) ->
-    {ok, Pid} = hardware:start_link(),
+    {ok, Pid} = hardware:start(),
     Dispatch = cowboy_router:compile([{'_',
 				       [{"/", plantwatcher_handler, Pid}]}]),
     {ok, _} = cowboy:start_clear(my_http_listener,
