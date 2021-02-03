@@ -37,10 +37,13 @@ check(#{pump := Pid_pump, bucket := Pid_bucket,
           State) ->
     Bucket = pigpio:call(Pid_bucket, read),
     Pot = pigpio:call(Pid_pot, read),
+    io:format("Bucket ~p~n", [Bucket]),
+    io:format("Pot ~p~n", [Pot]),
     case {Bucket, Pot} of
         % Bucket is full and pot is empty, start pump
-        {0, 1} -> io:format("Start the pump! ~n");
-        % pigpio:cast(Pid_pump, {command, setpullupdown, 1});
+        {1, 0} ->
+            io:format("Start the pump! ~n"),
+            pigpio:cast(Pid_pump, {command, setpullupdown, 1});
         % All other senarios, stop pump
         _ ->
             io:format("Stop the pump! ~n"),
@@ -61,4 +64,5 @@ floating_meter(Gpio) ->
     {ok, Pid} = pigpio:start_link(Gpio),
     pigpio:cast(Pid, {command, setmode, 0}),
     pigpio:cast(Pid, {command, setpullupdown, 2}),
+    pigpio:cast(Pid, {read, 1000}),
     {ok, Pid}.
