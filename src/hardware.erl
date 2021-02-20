@@ -35,23 +35,29 @@ loop(#{status := Status} = State) ->
 check(#{pump := Pid_pump, bucket := Pid_bucket,
         pot := Pid_pot} =
           State) ->
-    Bucket = pigpio:call(Pid_bucket, read),
-    Pot = pigpio:call(Pid_pot, read),
+    Bucket = floating_meter_status(pigpio:call(Pid_bucket,
+                                               read)),
+    Pot = floating_meter_status(pigpio:call(Pid_pot, read)),
     io:format("Bucket ~p~n", [Bucket]),
     io:format("Pot ~p~n", [Pot]),
-    case {Bucket, Pot} of
-        % Bucket is full and pot is empty, start pump
-        {1, 0} ->
-            io:format("Start the pump! ~n"),
-            pigpio:cast(Pid_pump, {command, setpullupdown, 1});
-        % All other senarios, stop pump
-        _ ->
-            io:format("Stop the pump! ~n"),
-            pigpio:cast(Pid_pump, {command, setpullupdown, 0})
-    end,
+    Status_pump = case {Bucket, Pot} of
+                      % Bucket is full and pot is empty, start pump
+                      {full, empty} ->
+                          io:format("Start the pump! ~n"),
+                          pigpio:cast(Pid_pump, {command, setpullupdown, 2}),
+                          on;
+                      % All other senarios, stop pump
+                      _ ->
+                          io:format("Stop the pump! ~n"),
+                          pigpio:cast(Pid_pump, {command, setpullupdown, 1}),
+                          off
+                  end,
     State#{status :=
-               #{bucket => Bucket, pot => Pot,
-                 pump => {Bucket, Pot} == {0, 1}}}.
+               #{bucket => Bucket, pot => Pot, pump => Status_pump}}.
+
+floating_meter_status(#{read := 1}) -> full;
+floating_meter_status(#{read := 0}) -> empty;
+floating_meter_status(_) -> unknown.
 
 % Register a new pump
 pump(Gpio) ->
