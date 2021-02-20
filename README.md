@@ -20,7 +20,7 @@ An additional floating meter was also attached to the bottom of the bucket. If t
 
 This solution still requires manual work (I'd need to refill the bucket needs now and then). However, if you're brave enough and trust that your code is bug-free, a liquid valve or similar could replace the pump.
 
-<img src="./priv/sensors/design.png" alt="Design" width="100%" style="display: inline-block;"/>
+<img src="./priv/sensors/design.png" alt="Design" width="75%" style="display: inline-block;"/>
 
 ## 🛰 Hardware
 
@@ -34,7 +34,7 @@ This solution still requires manual work (I'd need to refill the bucket needs no
 
 ### Hardware assembly
 
-<img src="./priv/sensors/circuit-diagram.png" alt="Design" width="100%" style="display: inline-block;"/>
+<img src="./priv/sensors/circuit-diagram.png" alt="Design" width="75%" style="display: inline-block;"/>
 
 _Created with [https://www.circuit-diagram.org/editor/](https://www.circuit-diagram.org/editor/)_
 
