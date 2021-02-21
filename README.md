@@ -14,11 +14,9 @@ My little pet project went, as they often tend to do, totally out of hand. After
 
 ## 🎨 Design
 
-I built the system with as little logic included as possible. One floating meter was attached to a flower pot with a built-in irrigation system to keep track of that the flowers had enough water. Next to the flower pot, I placed a bucket filled with water. If the floating meter indicated that more water is needed, the pump started pumping water from the bucket over to the flower pot.
-
-An additional floating meter was also attached to the bottom of the bucket. If the bucket would be empty - the pump wouldn't start at all (to prevent the pump from breaking).
-
-This solution still requires manual work (I'd need to refill the bucket needs now and then). However, if you're brave enough and trust that your code is bug-free, a liquid valve or similar could replace the pump.
+1. A pump is pumping water from a bucket (or any water source) to a flower pot with a built-in manual irrigation system.
+2. A floating meter is attached to the bottom of a bucket. If the bucket would be empty - the pump won't start at all.
+3. A floating meter is attached to a flower pot. If the floating meter indicate that more water is needed, the pump will start pumping water from the bucket over to the flower pot.
 
 <img src="./priv/sensors/design.png" alt="Design" width="75%" style="display: inline-block;"/>
 
@@ -32,6 +30,10 @@ This solution still requires manual work (I'd need to refill the bucket needs no
 - [Flower pot with irrigation system](https://medium.com/r/?url=https%3A%2F%2Fwww.obi.de%2Fpflanzentoepfe-aussen%2Febertsankey-blumenkasten-mediterran-mit-bewaesserungssystem-100-cm-anthrazit%2Fp%2F4444444)
 - 1 x [bucket](https://medium.com/r/?url=https%3A%2F%2Fwww.ikea.com%2Fde%2Fde%2Fp%2Fhallbar-behaelter-mit-deckel-hellgrau-80398058%2F)
 
+### Notes
+1. If you're brave enough and trust that your code is bug-free, a [liquid valve](https://www.electrokit.com/en/product/plastic-water-solenoid-valve-1-2-12v/) or similar could replace the pump.
+2. If another type of flower pot would be needed, the second floating meter could be exchanged to a [soil hygrometer module](https://www.electrokit.com/en/product/soil-hygrometer-module/) or a [flow sensor](https://www.electrokit.com/en/product/flodesmatare-1-30l-m-1-2-2/).
+
 ### Hardware assembly
 
 <img src="./priv/sensors/circuit-diagram.png" alt="Design" width="75%" style="display: inline-block;"/>
@@ -42,7 +44,7 @@ Please note that I've never studied electrical engineering and that the followin
 
 ## 👩‍💻 Software
 
-Feel free to use and abuse the code however you like, however, please note that the code was written for my own personal use and I take no responsibility for any incident of killed plants or flooded apartments. :)
+Feel free to use and abuse the code however you like.
 
 ### Prerequisites
 
