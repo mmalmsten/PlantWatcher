@@ -46,6 +46,8 @@ Please note that I've never studied electrical engineering and that the followin
 
 Feel free to use and abuse the code however you like.
 
+🌸 For reading from the GPIO pins, I use my **[pigpio library](https://github.com/mmalmsten/pigpio)**.
+
 ### Prerequisites
 
 The pigpio C library (http://abyz.me.uk/rpi/pigpio/)
