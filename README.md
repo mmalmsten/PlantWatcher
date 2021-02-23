@@ -25,7 +25,7 @@ My little pet project went, as they often tend to do, totally out of hand. After
 - 1 x [RaspberryPi Zero](https://www.electrokit.com/en/product/relay-module-5v/raspberry-pi-zero-w-board-2)
 - 1 x [Water pump mini 5V](https://www.electrokit.com/en/product/relay-module-5v/vattenpump-mini-5v)
 - 2 x [Float switch magnetic NO](https://www.electrokit.com/en/product/relay-module-5v/float-switch-magnetic-no)
-- 1 x [Relay module 5V][https://www.electrokit.com/en/product/relay-module-5v]
+- 1 x [Relay module 5V](https://www.electrokit.com/en/product/relay-module-5v)
 - [Speaker cables](https://www.electrokit.com/en/product/relay-module-5v/kabel-2x4-0-rod-svart-m) (I used about 4-5 meters for my setup, and it was more than enough)
 - [Flower pot with irrigation system](https://www.obi.de/pflanzentoepfe-aussen/ebertsankey-blumenkasten-mediterran-mit-bewaesserungssystem-100-cm-anthrazit/p/4444444)
 - 1 x [bucket](https://www.ikea.com/de/de/p/hallbar-behaelter-mit-deckel-hellgrau-80398058)
