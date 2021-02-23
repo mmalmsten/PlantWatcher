@@ -22,13 +22,13 @@ My little pet project went, as they often tend to do, totally out of hand. After
 
 ## 🛰 Hardware
 
-- 1 x [RaspberryPi Zero](https://medium.com/r/?url=https%3A%2F%2Fwww.electrokit.com%2Fen%2Fproduct%2Fraspberry-pi-zero-w-board-2%2F)
-- 1 x [Water pump mini 5V](https://medium.com/r/?url=https%3A%2F%2Fwww.electrokit.com%2Fen%2Fproduct%2Fvattenpump-mini-5v%2F)
-- 2 x [Float switch magnetic NO](https://medium.com/r/?url=https%3A%2F%2Fwww.electrokit.com%2Fen%2Fproduct%2Ffloat-switch-magnetic-no%2F)
-- 1 x [Relay module 5V][https://medium.com/r/?url=https%3a%2f%2fwww.electrokit.com%2fen%2fproduct%2frelay-module-5v%2f]
-- [Speaker cables](https://medium.com/r/?url=https%3A%2F%2Fwww.electrokit.com%2Fen%2Fproduct%2Fkabel-2x4-0-rod-svart-m%2F) (I used about 4-5 meters for my setup, and it was more than enough)
-- [Flower pot with irrigation system](https://medium.com/r/?url=https%3A%2F%2Fwww.obi.de%2Fpflanzentoepfe-aussen%2Febertsankey-blumenkasten-mediterran-mit-bewaesserungssystem-100-cm-anthrazit%2Fp%2F4444444)
-- 1 x [bucket](https://medium.com/r/?url=https%3A%2F%2Fwww.ikea.com%2Fde%2Fde%2Fp%2Fhallbar-behaelter-mit-deckel-hellgrau-80398058%2F)
+- 1 x [RaspberryPi Zero](https://www.electrokit.com/en/product/relay-module-5v/raspberry-pi-zero-w-board-2)
+- 1 x [Water pump mini 5V](https://www.electrokit.com/en/product/relay-module-5v/vattenpump-mini-5v)
+- 2 x [Float switch magnetic NO](https://www.electrokit.com/en/product/relay-module-5v/float-switch-magnetic-no)
+- 1 x [Relay module 5V][https://www.electrokit.com/en/product/relay-module-5v]
+- [Speaker cables](https://www.electrokit.com/en/product/relay-module-5v/kabel-2x4-0-rod-svart-m) (I used about 4-5 meters for my setup, and it was more than enough)
+- [Flower pot with irrigation system](https://www.obi.de/pflanzentoepfe-aussen/ebertsankey-blumenkasten-mediterran-mit-bewaesserungssystem-100-cm-anthrazit/p/4444444)
+- 1 x [bucket](https://www.ikea.com/de/de/p/hallbar-behaelter-mit-deckel-hellgrau-80398058)
 
 ### Notes
 1. If you're brave enough and trust that your code is bug-free, a [liquid valve](https://www.electrokit.com/en/product/plastic-water-solenoid-valve-1-2-12v/) or similar could replace the pump.
