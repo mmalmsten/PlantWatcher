@@ -85,7 +85,3 @@ make run
 ```
 
 An API skeletton is running on port 3000.
-
-### References
-
-Erlang socket bindings to pigpio: https://github.com/skvamme/pigpio
